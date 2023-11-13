@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert Data I-Care</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"></div>
+        <ul class="menu">
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="datatable.html">
+                    <i class="fas fa-table"></i>
+                    <span>Data Table</span>
+                </a>
+            </li>
+            <li  class="active">
+                <a href="insertdata.html">
+                    <i class="fas fa-table-columns"></i>
+                    <span>Tambah Data</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class ="header--title">
+                <span>Primary</span>
+                <h2>Dasboard</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                    <!-- Ganti kelas "fasolid" menjadi "fas" -->
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <img src="./image/img.jpg" alt=""/>
+            </div>            
+        </div>
+
+        <div class="card--container">
+            <h3 class="main--title">Data Hari Ini</h3>
+            <div class="card--wrapper">
+                <div class="data--card light-red">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">
+                               Data Pasien 
+                            </span>
+                            <span class="amount--value">
+                                10
+                            </span>
+                        </div>
+                        <i class="fas fa-people-roof icon dark-red"></i>  
+                    </div>
+                    <span class="card-detail">*** *** ***</span>
+                </div>
+
+                <div class="data--card light-purple">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">
+                               Data Obat 
+                            </span>
+                            <span class="amount--value">
+                                10
+                            </span>
+                        </div>
+                        <i class="fas fa-pump-medical icon dark-purple"></i>  
+                    </div>
+                    <span class="card-detail">*** *** ***</span>
+                </div>
+
+                <div class="data--card light-green">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">
+                               Data Dokter 
+                            </span>
+                            <span class="amount--value">
+                                10
+                            </span>
+                        </div>
+                        <i class="fas fa-people-group icon dark-green"></i>  
+                    </div>
+                    <span class="card-detail">*** *** ***</span>
+                </div>
+
+                <div class="data--card light-blue">
+                    <div class="card--header">
+                        <div class="amount">
+                            <span class="title">
+                               Data Apoteker 
+                            </span>
+                            <span class="amount--value">
+                                10
+                            </span>
+                        </div>
+                        <i class="fas fa-people-line icon dark-blue"></i>  
+                    </div>
+                    <span class="card-detail">*** *** ***</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabular--wrapper">
+            <h3 class="main--title">Data Pasien</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama Pasien</th>
+                            <th>Jenis Kelamin</th>
+                            <th>TTL</th>
+                            <th>Alamat</th>
+                            <th>Poli</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                Naufal Bagas
+                            </td>
+                            <td>
+                                L
+                            </td>
+                            <td>
+                                10-04-2002
+                            </td>
+                            <td>
+                                JL. Jambu
+                            </td>
+                            <td>
+                                Jantung
+                            </td>
+                            <td>
+                                Lunas
+                            </td>
+                            <td>
+                                <button >Edit</button>
+                            </td>
+                           </tr> 
+                           <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                Aqil Beranjak
+                            </td>
+                            <td>
+                                L
+                            </td>
+                            <td>
+                                10-04-2003
+                            </td>
+                            <td>
+                                JL. Mawar
+                            </td>
+                            <td>
+                                Gigi
+                            </td>
+                            <td>
+                                Lunas
+                            </td>
+                            <td>
+                                <button >Edit</button>
+                            </td>
+                           </tr> 
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
