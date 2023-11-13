@@ -38,159 +38,45 @@
     </div>
 
     <div class="main--content">
-        <div class="header--wrapper">
-            <div class ="header--title">
-                <span>Primary</span>
-                <h2>Dasboard</h2>
-            </div>
-            <div class="user--info">
-                <div class="search--box">
-                    <!-- Ganti kelas "fasolid" menjadi "fas" -->
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search">
-                </div>
-                <img src="./image/img.jpg" alt=""/>
-            </div>            
-        </div>
+        
+        <form>
+            <!-- Elemen formulir untuk ID -->
+            
 
-        <div class="card--container">
-            <h3 class="main--title">Data Hari Ini</h3>
-            <div class="card--wrapper">
-                <div class="data--card light-red">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">
-                               Data Pasien 
-                            </span>
-                            <span class="amount--value">
-                                10
-                            </span>
-                        </div>
-                        <i class="fas fa-people-roof icon dark-red"></i>  
-                    </div>
-                    <span class="card-detail">*** *** ***</span>
-                </div>
+            <!-- Elemen formulir untuk Nama Pasien -->
+            <label for="nama">Nama Pasien:</label>
+            <input type="text" id="nama" name="nama" required>
 
-                <div class="data--card light-purple">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">
-                               Data Obat 
-                            </span>
-                            <span class="amount--value">
-                                10
-                            </span>
-                        </div>
-                        <i class="fas fa-pump-medical icon dark-purple"></i>  
-                    </div>
-                    <span class="card-detail">*** *** ***</span>
-                </div>
+            <!-- Elemen formulir untuk Jenis Kelamin -->
+            <label for="jenis-kelamin">Jenis Kelamin:</label>
+            <select id="jenis-kelamin" name="jenis-kelamin" required>
+                <option value="L">Laki-Laki</option>
+                <option value="P">Perempuan</option>
+            </select>
 
-                <div class="data--card light-green">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">
-                               Data Dokter 
-                            </span>
-                            <span class="amount--value">
-                                10
-                            </span>
-                        </div>
-                        <i class="fas fa-people-group icon dark-green"></i>  
-                    </div>
-                    <span class="card-detail">*** *** ***</span>
-                </div>
+            <!-- Elemen formulir untuk TTL -->
+            <label for="ttl">TTL:</label>
+            <input type="text" id="ttl" name="ttl" required>
 
-                <div class="data--card light-blue">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">
-                               Data Apoteker 
-                            </span>
-                            <span class="amount--value">
-                                10
-                            </span>
-                        </div>
-                        <i class="fas fa-people-line icon dark-blue"></i>  
-                    </div>
-                    <span class="card-detail">*** *** ***</span>
-                </div>
-            </div>
-        </div>
+            <!-- Elemen formulir untuk Alamat -->
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="alamat" name="alamat" required>
 
-        <div class="tabular--wrapper">
-            <h3 class="main--title">Data Pasien</h3>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nama Pasien</th>
-                            <th>Jenis Kelamin</th>
-                            <th>TTL</th>
-                            <th>Alamat</th>
-                            <th>Poli</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                        </tr>
-                        <tbody>
-                           <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                Naufal Bagas
-                            </td>
-                            <td>
-                                L
-                            </td>
-                            <td>
-                                10-04-2002
-                            </td>
-                            <td>
-                                JL. Jambu
-                            </td>
-                            <td>
-                                Jantung
-                            </td>
-                            <td>
-                                Lunas
-                            </td>
-                            <td>
-                                <button >Edit</button>
-                            </td>
-                           </tr> 
-                           <tr>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                Aqil Beranjak
-                            </td>
-                            <td>
-                                L
-                            </td>
-                            <td>
-                                10-04-2003
-                            </td>
-                            <td>
-                                JL. Mawar
-                            </td>
-                            <td>
-                                Gigi
-                            </td>
-                            <td>
-                                Lunas
-                            </td>
-                            <td>
-                                <button >Edit</button>
-                            </td>
-                           </tr> 
-                        </tbody>
-                    </thead>
-                </table>
-            </div>
-        </div>
+            <!-- Elemen formulir untuk Poli -->
+            <label for="poli">Poli:</label>
+            <input type="text" id="poli" name="poli" required>
+
+            <!-- Elemen formulir untuk Status -->
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" required>
+
+            <!-- Elemen formulir untuk Aksi -->
+            <label for="aksi">Aksi:</label>
+            <input type="text" id="aksi" name="aksi" required>
+
+            <!-- Tombol Submit -->
+            <button type="submit">Tambah Data</button>
+        </form>
     </div>
 </body>
 </html>
