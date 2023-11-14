@@ -1,3 +1,17 @@
+<?php
+    $conn= mysqli_connect("localhost","root","","i-care");
+    $Pasien = query("SELECT * from pasien");
+    function query($query) {
+        global $conn;
+        $result = mysqli_query($conn, $query);
+        $rows =[];
+        while($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,19 +27,19 @@
         <div class="logo"></div>
         <ul class="menu">
             <li>
-                <a href="index.html">
+                <a href="index.php">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="active">
-                <a href="datatable.html">
+                <a href="datatable.php">
                     <i class="fas fa-table"></i>
                     <span>Data Table</span>
                 </a>
             </li>
             <li>
-                <a href="insertdata.html">
+                <a href="insertdata.php">
                     <i class="fas fa-table-columns"></i>
                     <span>Tambah Data</span>
                 </a>
@@ -67,60 +81,48 @@
                             <th>Poli</th>
                             <th>Status</th>
                             <th>Aksi</th>
+                            <th>Waktu</th>
                         </tr>
                         <tbody>
+                            <?php
+                            $i = 1; 
+                            ?>
+                            <?php
+                            foreach ($Pasien as $row) : 
+                            ?>
                            <tr>
                             <td>
-                                1
+                                <?= $row['ID']; ?>
                             </td>
                             <td>
-                                Naufal Bagas
+                                <?= $row['nama']; ?>
                             </td>
                             <td>
-                                L
+                                <?= $row['jenis_kelamin']; ?>
                             </td>
                             <td>
-                                10-04-2002
+                                <?= $row['Tanggal_Lahir']; ?>
                             </td>
                             <td>
-                                JL. Jambu
+                                <?= $row['Alamat']; ?>
                             </td>
                             <td>
-                                Jantung
+                                <?= $row['Poli']; ?>
                             </td>
                             <td>
-                                Lunas
+                                <?= $row['Status']; ?>
                             </td>
                             <td>
                                 <button >Edit</button>
                             </td>
-                           </tr> 
-                           <tr>
                             <td>
-                                1
+                                <?= $row['Waktu_Inputan']; ?>
                             </td>
-                            <td>
-                                Aqil Beranjak
-                            </td>
-                            <td>
-                                L
-                            </td>
-                            <td>
-                                10-04-2003
-                            </td>
-                            <td>
-                                JL. Mawar
-                            </td>
-                            <td>
-                                Gigi
-                            </td>
-                            <td>
-                                Lunas
-                            </td>
-                            <td>
-                                <button >Edit</button>
-                            </td>
-                           </tr> 
+                           </tr>
+                            <?php $i++; ?> 
+                            <?php
+                            endforeach;
+                            ?>
                         </tbody>
                     </thead>
                 </table>
