@@ -1,15 +1,63 @@
 <?php
-    $conn= mysqli_connect("localhost","root","","i-care");
-    $Pasien = query("SELECT * from pasien");
-    function query($query) {
-        global $conn;
-        $result = mysqli_query($conn, $query);
-        $rows =[];
-        while($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
+    // Fungsi untuk membuat koneksi ke database
+    function connectToDatabase()
+    {
+        return mysqli_connect("localhost", "root", "", "i-care");
     }
-    return $rows;
-}
+
+    // Fungsi untuk menjalankan query dan mengembalikan hasilnya dalam bentuk array asosiatif
+    function query($conn, $query)
+    {
+        $result = mysqli_query($conn, $query);
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+    // Fungsi untuk mencari data berdasarkan kata kunci
+    function searchPasien($Pasien, $keyword)
+    {
+        return array_values(
+            array_filter(
+                $Pasien,
+                fn($row) => strpos(strtolower($row['nama']), strtolower($keyword)) !== false
+            )
+        );
+    }
+
+    // Fungsi untuk menampilkan satu baris data
+    function displayRow($row)
+    {
+        return "<tr>
+                    <td>{$row['ID']}</td>
+                    <td>{$row['nama']}</td>
+                    <td>{$row['jenis_kelamin']}</td>
+                    <td>{$row['Tanggal_Lahir']}</td>
+                    <td>{$row['Alamat']}</td>
+                    <td>{$row['Poli']}</td>
+                    <td>{$row['Status']}</td>
+                    <td><button>Edit</button></td>
+                    <td>{$row['Waktu_Inputan']}</td>
+                </tr>";
+    }
+
+    // Fungsi untuk menampilkan tabel
+    function displayTable($data)
+    {
+        return implode('', array_map('displayRow', $data));
+    }
+
+    // Koneksi ke database
+    $conn = connectToDatabase();
+
+    // Memeriksa apakah ada parameter pencarian yang dikirimkan
+    $keyword = $_GET['search'] ?? '';
+    
+    // Menjalankan query untuk mendapatkan data pasien
+    $Pasien = query($conn, "SELECT * FROM pasien");
+
+    // Jika ada parameter pencarian, filter data pasien
+    if (!empty($keyword)) {
+        $Pasien = searchPasien($Pasien, $keyword);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -83,48 +131,10 @@
                             <th>Aksi</th>
                             <th>Waktu</th>
                         </tr>
-                        <tbody>
-                            <?php
-                            $i = 1; 
-                            ?>
-                            <?php
-                            foreach ($Pasien as $row) : 
-                            ?>
-                           <tr>
-                            <td>
-                                <?= $row['ID']; ?>
-                            </td>
-                            <td>
-                                <?= $row['nama']; ?>
-                            </td>
-                            <td>
-                                <?= $row['jenis_kelamin']; ?>
-                            </td>
-                            <td>
-                                <?= $row['Tanggal_Lahir']; ?>
-                            </td>
-                            <td>
-                                <?= $row['Alamat']; ?>
-                            </td>
-                            <td>
-                                <?= $row['Poli']; ?>
-                            </td>
-                            <td>
-                                <?= $row['Status']; ?>
-                            </td>
-                            <td>
-                                <button >Edit</button>
-                            </td>
-                            <td>
-                                <?= $row['Waktu_Inputan']; ?>
-                            </td>
-                           </tr>
-                            <?php $i++; ?> 
-                            <?php
-                            endforeach;
-                            ?>
-                        </tbody>
                     </thead>
+                    <tbody>
+                        <?php displayTable($Pasien); ?>
+                    </tbody>
                 </table>
             </div>
         </div>

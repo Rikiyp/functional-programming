@@ -23,6 +23,18 @@
                 </a>
             </li>
             <li>
+                <a href="datatable.php">
+                    <i class="fas fa-table"></i>
+                    <span>Data Table</span>
+                </a>
+            </li>
+            <li>
+                <a href="datatable.php">
+                    <i class="fas fa-table"></i>
+                    <span>Data Table</span>
+                </a>
+            </li>
+            <li>
                 <a href="insertdata.php">
                     <i class="fas fa-table-columns"></i>
                     <span>Tambah Data</span>

@@ -1,7 +1,7 @@
 <?php
-  $conn= mysqli_connect("localhost","root","","i-care");
+    $conn= mysqli_connect("localhost","root","","i-care");
 
-  if(isset($_POST["submit"])) {
+if(isset($_POST["submit"])) {
     $name = $_POST ["nama"];
     $Jenis_Kelamin = $_POST ["jenis_kelamin"];
     $Tanggal_Lahir = $_POST ["Tanggal_Lahir"];
@@ -13,7 +13,7 @@
                 VALUES
             ('', '$name', '$Jenis_Kelamin', '$Tanggal_Lahir', '$Alamat', '$Poli', '$Status', '')";
     mysqli_query($conn,$query);
-  }
+}
 ?>
 
 
