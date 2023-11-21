@@ -2,7 +2,7 @@
     // Fungsi untuk membuat koneksi ke database
     function connectToDatabase()
     {
-        return mysqli_connect("localhost", "root", "", "i-care");
+        return mysqli_connect("localhost", "root", "", "users_icare");
     }
 
     // Fungsi untuk menjalankan query dan mengembalikan hasilnya dalam bentuk array asosiatif
@@ -33,7 +33,6 @@
                     <td>{$row['Tanggal_Lahir']}</td>
                     <td>{$row['Alamat']}</td>
                     <td>{$row['Poli']}</td>
-                    <td>{$row['Status']}</td>
                     <td><button>Edit</button></td>
                     <td>{$row['Waktu_Inputan']}</td>
                 </tr>";
@@ -55,8 +54,15 @@
     $Pasien = query($conn, "SELECT * FROM pasien");
 
     // Jika ada parameter pencarian, filter data pasien
-    if (!empty($keyword)) {
-        $Pasien = searchPasien($Pasien, $keyword);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $keyword = $_POST['search'] ?? '';
+        // Jika ada parameter pencarian, filter data pasien
+        if (!empty($keyword)) {
+            $Pasien = searchPasien($Pasien, $keyword);
+        }
+    } else {
+        // Jika formulir belum dikirimkan, tampilkan semua data
+        $Pasien = query($conn, "SELECT * FROM pasien");
     }
 ?>
 
@@ -108,9 +114,12 @@
             </div>
             <div class="user--info">
                 <div class="search--box">
+                    <form method="POST" action="datatable.php">
+                        <i class="fas fa-search"></i>
+                        <input type="text" name="search" placeholder="Search" value="<?php echo $keyword; ?>">
+                        <button type="submit">Search</button>
+                    </form>
                     <!-- Ganti kelas "fasolid" menjadi "fas" -->
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search">
                 </div>
                 <img src="./image/img.jpg" alt=""/>
             </div>            
@@ -133,7 +142,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php displayTable($Pasien); ?>
+                        <?= displayTable($Pasien); ?>
                     </tbody>
                 </table>
             </div>
