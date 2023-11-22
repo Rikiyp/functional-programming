@@ -1,41 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Dashboard I-Care</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-</head>
-<body>
     <div class="sidebar">
         <div class="logo"></div>
         <ul class="menu">
             <li class="active">
-                <a href="index.php">
+                <a href="<?= BASEURL ?>">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="datatable.php">
+                <a href="<?= BASEURL ?>/DataTable">
                     <i class="fas fa-table"></i>
                     <span>Data Table</span>
                 </a>
             </li>
             <li>
-                <a href="datatable.php">
+                <a href="<?= BASEURL ?>/DataTable">
                     <i class="fas fa-table"></i>
                     <span>Data Table</span>
                 </a>
             </li>
             <li>
-                <a href="datatable.php">
+                <a href="<?= BASEURL ?>/DataTable">
                     <i class="fas fa-table"></i>
                     <span>Data Table</span>
                 </a>
             </li>
             <li>
-                <a href="insertdata.php">
+                <a href="<?= BASEURL ?>/InsertData">
                     <i class="fas fa-table-columns"></i>
                     <span>Tambah Data</span>
                 </a>
@@ -53,14 +44,9 @@
         <div class="header--wrapper">
             <div class ="header--title">
                 <span>Primary</span>
-                <h2>Dasboard</h2>
+                <h2>Dashboard</h2>
             </div>
             <div class="user--info">
-                <div class="search--box">
-                    <!-- Ganti kelas "fasolid" menjadi "fas" -->
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search">
-                </div>
                 <img src="./image/img.jpg" alt=""/>
             </div>            
         </div>
@@ -82,22 +68,6 @@
                     </div>
                     <span class="card-detail">*** *** ***</span>
                 </div>
-
-                <div class="data--card light-purple">
-                    <div class="card--header">
-                        <div class="amount">
-                            <span class="title">
-                               Data Obat 
-                            </span>
-                            <span class="amount--value">
-                                10
-                            </span>
-                        </div>
-                        <i class="fas fa-pump-medical icon dark-purple"></i>  
-                    </div>
-                    <span class="card-detail">*** *** ***</span>
-                </div>
-
                 <div class="data--card light-green">
                     <div class="card--header">
                         <div class="amount">
@@ -132,5 +102,3 @@
 
         
     </div>
-</body>
-</html>
